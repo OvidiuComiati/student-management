@@ -28,7 +28,7 @@ app.post('/Users',(req,res) => {
     console.log(2)
     var body = _.pick(req.body,['email','username','password']);
     var user = new User(body);
-    console.log(user);
+
     user.save().then(() => {
         console.log(2)
         //res.send(doc);
@@ -63,6 +63,8 @@ app.delete('/me/token',authenticate, (req, res) =>{
         res.status(200).send()
     }, () =>{
         res.status(400).send()
+    }).catch((err) =>{
+        res.status(400).send(err);
     })
 })
 app.get('/subjects/:code',(req,res) => {

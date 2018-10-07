@@ -41,7 +41,6 @@ var UserSchema = new mongoose.Schema({
         type: [{
         subject: {
             type: String
-    
         },
         labGrade: {
             required: true,
