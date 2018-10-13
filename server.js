@@ -211,10 +211,14 @@ app.delete('/Users/:username',(req,res) => {
         res.status(400).send(err);
     })
 })
-
+app.get('/studentsAll', (req, res) =>{
+    
+    User.find({}).then(users =>res.status(200).send(users))
+})
 app.listen(port,() => {
     console.log(`started on port ${port}`);
 })
+
 
 module.exports = {
     app: app
