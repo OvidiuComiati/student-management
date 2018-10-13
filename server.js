@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
 const cors = require('cors')
 
-const {Average} = require('../project/models/average');
 const authenticate = require('./authenticate/authenticate');
 const {mongoose} = require('./db/mongoose');
 const {Subject} = require('./models/subject');
@@ -212,36 +211,7 @@ app.delete('/Users/:username',(req,res) => {
         res.status(400).send(err);
     })
 })
-app.post('/averages',(req,res) => {
-    User.find({}).then( users => {
-        if(!users){
-            return res.status(400).send('no no no ')
-        }
-        //res.send(users)
-        users.forEach( user =>{
-            
-            
-            var average = new Average({
-                username: user.username,
-                average: user.average
-            })
-            console.log('in');
-            average.save().then((doc) => {    
-                return res.send(doc);
-            }).catch((err) => {
-                res.status(400).send(err);
-            })
-            
-        } )
-    }).catch( (err) => {
-        console.log('not ok');
-    })
-})
-// app.get('/averages',(req,res) => {
-//     //console.log('in');
-//     getScores()
-//     Average.find({}).then(scores => res.status(200).send(scores))
-// })
+
 app.listen(port,() => {
     console.log(`started on port ${port}`);
 })
