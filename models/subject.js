@@ -28,16 +28,7 @@ var Subject = mongoose.model('Subjects',{
         required: true,
         minlength: 3
     }
-    // labGrade:{
-    //     type: Number,
-    //     required: true
-    //     //default: 0
-    // },
-    // examGrade:{
-    //     type: Number,
-    //     required: true
-    //     //default: 0
-    // }
+
    
 })
 

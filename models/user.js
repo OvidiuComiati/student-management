@@ -68,6 +68,7 @@ var UserSchema = new mongoose.Schema({
         }
     }]
 })
+
 function arrayLimit(val) {
     return val.length <= 12;
   }
@@ -157,7 +158,7 @@ UserSchema.pre('save', function(next){
     } else {
         next()
     }
-})
+});
 
 var User = mongoose.model('Users',UserSchema);
 

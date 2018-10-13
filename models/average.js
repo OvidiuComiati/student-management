@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const average = mongoose.model({
-    score: {
+var averageSchema = new mongoose.Schema({
+    average: {
         type: Number,
         required: true,
     },
@@ -11,6 +11,7 @@ const average = mongoose.model({
     }
 })
 
+var average = mongoose.model('Average',averageSchema);
 
 
 module.exports = {
