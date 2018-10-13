@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
 const cors = require('cors')
 
-const {getScores} = require('../project/average/score');
 const {Average} = require('../project/models/average');
 const authenticate = require('./authenticate/authenticate');
 const {mongoose} = require('./db/mongoose');
